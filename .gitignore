@@ -1,0 +1,29 @@
+# dependencies (โฟลเดอร์เก็บ Library ไม่ต้องเอาขึ้นเพราะมันหนักมาก)
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js (ไฟล์ที่ได้จากการ Build ไม่ต้องเอาขึ้น เดี๋ยว Vercel สร้างใหม่เอง)
+/.next/
+/out/
+
+# production
+/build
+
+# misc (ไฟล์ขยะของระบบปฏิบัติการ)
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files (สำคัญที่สุด: ห้ามเอาไฟล์รหัสผ่านและ URL GAS ของคุณขึ้น GitHub!)
+.env*.local
+
+# vercel
+.vercel
