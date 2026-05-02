@@ -72,9 +72,10 @@ export default function Home() {
   const currentMinutes = currentTime.getHours() * 60 + currentTime.getMinutes();
   const currentDayName = new Intl.DateTimeFormat('en-US', { weekday: 'long', timeZone: 'Asia/Bangkok' }).format(currentTime);
 
+  // เปลี่ยนชื่อวันเป็นภาษาไทย
   const dayThaiMap = {
-    'Monday': 'Monday', 'Tuesday': 'Tuesday', 'Wednesday': 'Wednesday', 
-    'Thursday': 'Thursday', 'Friday': 'Friday', 'Saturday': 'Saturday', 'Sunday': 'Sunday'
+    'Monday': 'วันจันทร์', 'Tuesday': 'วันอังคาร', 'Wednesday': 'วันพุธ', 
+    'Thursday': 'วันพฤหัสบดี', 'Friday': 'วันศุกร์', 'Saturday': 'วันเสาร์', 'Sunday': 'วันอาทิตย์'
   };
 
   const PuatifyLogo = () => (
@@ -162,7 +163,8 @@ export default function Home() {
             <select className="w-full bg-[#1E293B] border border-slate-700 text-slate-300 py-4 px-6 rounded-2xl outline-none focus:ring-2 focus:ring-purple-400 text-lg font-bold shadow-sm" 
               value={level} onChange={(e) => {setLevel(e.target.value); setRoom('');}}>
               <option value="" disabled>Select Level</option>
-              {[1,2,3,4,5,6].map((i) => <option key={i} value={`m${i}`}>Level M.{i}</option>)}
+              {/* เอาคำว่า Level ออก เหลือแค่ M.1 - M.6 */}
+              {[1,2,3,4,5,6].map((i) => <option key={i} value={`m${i}`}>M.{i}</option>)}
             </select>
             <select className="w-full bg-[#1E293B] border border-slate-700 text-slate-300 py-4 px-6 rounded-2xl outline-none focus:ring-2 focus:ring-teal-400 text-lg font-bold shadow-sm" 
               disabled={!level} value={room} onChange={(e) => setRoom(e.target.value)}>
@@ -182,7 +184,14 @@ export default function Home() {
                 </h3>
 
                 <select className="px-5 py-3 rounded-2xl bg-[#1E293B] border border-slate-700 outline-none text-md font-bold shadow-sm" value={viewDay} onChange={e => setViewDay(e.target.value)}>
-                  <option value="Monday">Monday</option><option value="Tuesday">Tuesday</option><option value="Wednesday">Wednesday</option><option value="Thursday">Thursday</option><option value="Friday">Friday</option><option value="Saturday">Saturday</option><option value="Sunday">Sunday</option>
+                  {/* เปลี่ยนตัวเลือกวันใน Dropdown เป็นภาษาไทย (แต่ value ยังเป็นอังกฤษเพื่อให้ระบบทำงานได้) */}
+                  <option value="Monday">วันจันทร์</option>
+                  <option value="Tuesday">วันอังคาร</option>
+                  <option value="Wednesday">วันพุธ</option>
+                  <option value="Thursday">วันพฤหัสบดี</option>
+                  <option value="Friday">วันศุกร์</option>
+                  <option value="Saturday">วันเสาร์</option>
+                  <option value="Sunday">วันอาทิตย์</option>
                 </select>
               </div>
 
