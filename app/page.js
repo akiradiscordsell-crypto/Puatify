@@ -72,7 +72,7 @@ export default function Home() {
   const currentMinutes = currentTime.getHours() * 60 + currentTime.getMinutes();
   const currentDayName = new Intl.DateTimeFormat('en-US', { weekday: 'long', timeZone: 'Asia/Bangkok' }).format(currentTime);
 
-  // เปลี่ยนชื่อวันเป็นภาษาไทย
+
   const dayThaiMap = {
     'Monday': 'วันจันทร์', 'Tuesday': 'วันอังคาร', 'Wednesday': 'วันพุธ', 
     'Thursday': 'วันพฤหัสบดี', 'Friday': 'วันศุกร์', 'Saturday': 'วันเสาร์', 'Sunday': 'วันอาทิตย์'
@@ -163,7 +163,6 @@ export default function Home() {
             <select className="w-full bg-[#1E293B] border border-slate-700 text-slate-300 py-4 px-6 rounded-2xl outline-none focus:ring-2 focus:ring-purple-400 text-lg font-bold shadow-sm" 
               value={level} onChange={(e) => {setLevel(e.target.value); setRoom('');}}>
               <option value="" disabled>Select Level</option>
-              {/* เอาคำว่า Level ออก เหลือแค่ M.1 - M.6 */}
               {[1,2,3,4,5,6].map((i) => <option key={i} value={`m${i}`}>M.{i}</option>)}
             </select>
             <select className="w-full bg-[#1E293B] border border-slate-700 text-slate-300 py-4 px-6 rounded-2xl outline-none focus:ring-2 focus:ring-teal-400 text-lg font-bold shadow-sm" 
